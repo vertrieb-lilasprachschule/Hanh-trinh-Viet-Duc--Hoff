@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hành Trình Việt Đức – Hoff | Tiếng Đức & Du học nghề CHLB Đức</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg:#2c3550;--deep:#253048;--card:#344067;--card2:#3a4a78;
+    --border:rgba(255,255,255,0.12);--gold:#f0b429;--gold-lt:#ffd060;
+    --gold-dim:rgba(240,180,41,0.14);--white:#f0f4ff;--muted:rgba(210,220,255,0.65);
+    --green:#2d6a4f;--green2:#356050;--flag-r:#DD0000;--flag-y:#FFCE00;
+  }
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--white);font-family:'Be Vietnam Pro',sans-serif;font-weight:300;overflow-x:hidden;}
+  nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1.6rem 5vw;background:transparent;transition:padding 0.4s,background 0.4s,box-shadow 0.4s;}
+  nav.scrolled{padding:0.85rem 5vw;background:rgba(36,42,68,0.96);backdrop-filter:blur(18px);box-shadow:0 2px 24px rgba(0,0,0,0.25);border-bottom:1px solid var(--border);}
+  .logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1.25rem;letter-spacing:0.02em;color:var(--white);transition:font-size 0.4s;}
+  nav.scrolled .logo{font-size:1.05rem;}
+  .logo span{color:var(--gold);}
+  .nav-links{display:flex;gap:2rem;list-style:none;}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:0.8rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.3s;}
+  .nav-links a:hover{color:var(--gold);}
+  .nav-cta{background:var(--gold);color:#1a1a00;padding:0.55rem 1.3rem;border-radius:3px;font-size:0.78rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;border:none;transition:background 0.3s,transform 0.2s;white-space:nowrap;}
+  .nav-cta:hover{background:var(--gold-lt);transform:translateY(-1px);}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+  .hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:all 0.3s;}
+  .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(36,42,68,0.98);backdrop-filter:blur(20px);z-index:300;flex-direction:column;align-items:center;justify-content:center;gap:2rem;}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{color:var(--white);text-decoration:none;font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;transition:color 0.3s;}
+  .mobile-menu a:hover{color:var(--gold);}
+  .mobile-menu-close{position:absolute;top:1.5rem;right:5vw;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer;line-height:1;}
+  .mobile-cta-btn{background:var(--gold);color:#1a1a00;padding:0.85rem 2.5rem;border-radius:3px;font-weight:700;font-size:0.9rem;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;border:none;margin-top:0.5rem;}
+  .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:3rem;padding:7rem 5vw 4rem;position:relative;overflow:hidden;background:linear-gradient(135deg,#2c3550 0%,#1e2a45 60%,#253048 100%);}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 65% at 85% 45%,rgba(240,180,41,0.09) 0%,transparent 70%),radial-gradient(ellipse 35% 45% at 5% 85%,rgba(221,0,0,0.07) 0%,transparent 60%);}
+  .flag-bar{position:absolute;right:0;top:0;bottom:0;width:5px;display:flex;flex-direction:column;}
+  .flag-bar span{flex:1;}
+  .flag-bar span:nth-child(1){background:#222;}
+  .flag-bar span:nth-child(2){background:var(--flag-r);}
+  .flag-bar span:nth-child(3){background:var(--flag-y);}
+  .hero-text{position:relative;z-index:2;animation:fadeUp 0.9s ease both;}
+  .eyebrow{display:inline-flex;align-items:center;gap:0.6rem;color:var(--gold);font-size:0.73rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:1.6rem;}
+  .eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);}
+  h1{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,4.8vw,4.5rem);font-weight:900;line-height:1.08;margin-bottom:1.3rem;}
+  h1 em{color:var(--gold);font-style:normal;}
+  .hero-sub{color:var(--muted);font-size:1rem;line-height:1.75;max-width:460px;margin-bottom:2.4rem;}
+  /* FIX 1: Loại bỏ text-shadow phát sáng */
+  .brand-hoff{font-weight:700;color:var(--gold);letter-spacing:0.02em;}
+  .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+  .btn-primary{background:var(--gold);color:#1a1a00;padding:0.85rem 2rem;border-radius:3px;font-weight:700;font-size:0.86rem;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;border:none;transition:all 0.3s;text-decoration:none;display:inline-block;}
+  .btn-primary:hover{background:var(--gold-lt);transform:translateY(-2px);box-shadow:0 8px 22px rgba(240,180,41,0.28);}
+  .btn-outline{border:1px solid rgba(240,180,41,0.45);color:var(--gold);padding:0.85rem 2rem;border-radius:3px;font-weight:500;font-size:0.86rem;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;background:transparent;transition:all 0.3s;text-decoration:none;display:inline-block;}
+  .btn-outline:hover{border-color:var(--gold);background:var(--gold-dim);}
+  .hero-visual{position:relative;z-index:2;display:flex;flex-direction:column;gap:1rem;animation:fadeUp 0.9s 0.25s ease both;}
+  .stat-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+  .stat-card{background:rgba(52,64,103,0.85);border:1px solid var(--border);padding:1.4rem;border-radius:6px;position:relative;overflow:hidden;transition:transform 0.3s,border-color 0.3s;backdrop-filter:blur(6px);}
+  .stat-card:hover{transform:translateY(-3px);border-color:rgba(240,180,41,0.4);}
+  .stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);}
+  .stat-num{font-family:'Be Vietnam Pro',sans-serif;font-size:2.2rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:0.3rem;font-variant-numeric:tabular-nums lining-nums;letter-spacing:-0.01em;}
+  .stat-label{font-size:0.76rem;color:var(--muted);}
+  .level-ticker{background:rgba(52,64,103,0.85);border:1px solid var(--border);padding:1.4rem;border-radius:6px;position:relative;overflow:hidden;backdrop-filter:blur(6px);}
+  .level-ticker::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);}
+  .ticker-label{font-size:0.72rem;color:var(--muted);margin-bottom:0.5rem;letter-spacing:0.05em;}
+  .ticker-track{display:flex;gap:0.6rem;align-items:center;}
+  .ticker-item{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;padding:0.3rem 0.8rem;border-radius:4px;border:2px solid transparent;color:var(--muted);transition:all 0.5s;flex-shrink:0;}
+  .ticker-item.active{color:var(--gold);border-color:var(--gold);background:var(--gold-dim);transform:scale(1.12);}
+  .ticker-arrow{color:var(--muted);font-size:1rem;}
+  .hero-badge{background:rgba(52,64,103,0.85);border:1px solid var(--border);padding:1.1rem 1.4rem;border-radius:6px;display:flex;align-items:center;gap:1rem;backdrop-filter:blur(6px);}
+  .badge-icon{font-size:1.8rem;flex-shrink:0;}
+  .badge-text strong{display:block;font-size:0.88rem;font-weight:600;}
+  .badge-text span{font-size:0.74rem;color:var(--muted);}
+  section{padding:5.5rem 5vw;}
+  .section-tag{color:var(--gold);font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;display:inline-flex;align-items:center;gap:0.5rem;margin-bottom:0.8rem;}
+  .section-tag::before{content:'';width:22px;height:1px;background:var(--gold);}
+  h2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.2vw,2.8rem);font-weight:900;line-height:1.15;margin-bottom:0.9rem;}
+  h2 em{color:var(--gold);font-style:normal;}
+  .section-desc{color:var(--muted);font-size:0.97rem;line-height:1.75;max-width:540px;}
+  #dich-vu{background:var(--deep);}
+  .services-header{text-align:center;margin-bottom:3.5rem;}
+  .services-header .section-desc{margin:0 auto;}
+  .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2px;background:var(--border);border:1px solid var(--border);}
+  .service-card{background:var(--card);padding:2.8rem 2.2rem;transition:background 0.3s;position:relative;overflow:hidden;}
+  .service-card:hover{background:var(--card2);}
+  .service-card.featured{background:var(--green);}
+  .service-card.featured:hover{background:var(--green2);}
+  .service-num{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:900;color:rgba(240,180,41,0.13);line-height:1;margin-bottom:1.2rem;}
+  .service-icon{font-size:1.9rem;margin-bottom:1rem;}
+  .service-card h3{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;margin-bottom:0.9rem;color:var(--white);}
+  .service-card.featured h3{color:var(--gold-lt);}
+  .service-card p{color:var(--muted);font-size:0.88rem;line-height:1.7;margin-bottom:1.3rem;}
+  .service-tags{display:flex;flex-wrap:wrap;gap:0.45rem;}
+  .tag{padding:0.28rem 0.7rem;border:1px solid var(--border);border-radius:50px;font-size:0.7rem;color:var(--muted);}
+  .service-card.featured .tag{border-color:rgba(240,180,41,0.35);color:var(--gold-lt);}
+  #tieng-duc{display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:center;}
+  .levels-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem;}
+  .level-card{background:var(--card);border:1px solid var(--border);padding:1.4rem 0.8rem;border-radius:6px;text-align:center;transition:all 0.3s;}
+  .level-card:hover{border-color:var(--gold);transform:translateY(-3px);}
+  .level-card.hl{border-color:var(--gold);background:var(--gold-dim);}
+  .level-name{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--gold);}
+  .level-desc{font-size:0.68rem;color:var(--muted);margin-top:0.25rem;}
+  .german-quote{background:var(--card);border-left:3px solid var(--gold);padding:1.4rem 1.6rem;margin-top:1.8rem;border-radius:0 6px 6px 0;}
+  .german-quote p{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gold);font-style:italic;}
+  .german-quote small{color:var(--muted);font-size:0.75rem;margin-top:0.4rem;display:block;}
+  .cefr-note{background:var(--gold-dim);border:1px solid rgba(240,180,41,0.3);border-radius:6px;padding:1rem 1.2rem;margin-top:1.2rem;font-size:0.8rem;color:var(--muted);line-height:1.6;}
+  .cefr-note strong{color:var(--gold);}
+  #lo-trinh{background:var(--deep);}
+  .steps{display:flex;flex-direction:column;margin-top:2.8rem;max-width:680px;}
+  .step{display:grid;grid-template-columns:70px 1fr;gap:1.8rem;padding:1.8rem 0;border-bottom:1px solid var(--border);}
+  .step:last-child{border-bottom:none;}
+  .step-num{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:900;color:var(--gold-dim);line-height:1;transition:color 0.3s;}
+  .step:hover .step-num{color:var(--gold);}
+  .step h4{font-size:1rem;font-weight:600;margin-bottom:0.45rem;}
+  .step p{color:var(--muted);font-size:0.86rem;line-height:1.65;}
+  #tai-sao{display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:start;}
+  .why-list{display:flex;flex-direction:column;gap:1.2rem;margin-top:1.8rem;}
+  .why-item{display:flex;gap:1.1rem;align-items:flex-start;padding:1.3rem;background:var(--card);border:1px solid var(--border);border-radius:6px;transition:border-color 0.3s;}
+  .why-item:hover{border-color:rgba(240,180,41,0.35);}
+  .why-icon{font-size:1.4rem;flex-shrink:0;margin-top:0.1rem;}
+  .why-item h4{font-size:0.92rem;font-weight:600;margin-bottom:0.25rem;}
+  .why-item p{color:var(--muted);font-size:0.82rem;line-height:1.6;}
+  .fact-row{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 0;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:0.4rem;}
+  .fact-row:last-child{border-bottom:none;}
+  .fact-label{color:var(--muted);font-size:0.83rem;flex:1;min-width:0;padding-right:0.5rem;}
+  .fact-value{font-weight:600;color:var(--gold);font-size:0.92rem;white-space:nowrap;}
+  #thong-ke{background:var(--deep);}
+  .stats-bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5rem;margin-top:2.5rem;}
+  .stats-bar-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.8rem 1.4rem;text-align:center;position:relative;overflow:hidden;transition:transform 0.3s,border-color 0.3s;}
+  .stats-bar-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);}
+  .stats-bar-card:hover{transform:translateY(-4px);border-color:rgba(240,180,41,0.4);}
+  .stats-bar-num{font-family:'Be Vietnam Pro',sans-serif;font-size:2.4rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:0.4rem;letter-spacing:-0.01em;font-variant-numeric:tabular-nums lining-nums;}
+  .stats-bar-label{font-size:0.78rem;color:var(--muted);line-height:1.5;}
+  #cam-nhan{background:var(--bg);}
+  .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.3rem;margin-top:2.8rem;}
+  .review-card{background:var(--card);border:1px solid var(--border);padding:1.8rem;border-radius:6px;transition:transform 0.3s;}
+  .review-card:hover{transform:translateY(-4px);}
+  .review-quote{font-size:2.8rem;color:var(--gold);line-height:0.8;font-family:'Playfair Display',serif;margin-bottom:0.8rem;opacity:0.45;}
+  .review-text{color:var(--muted);font-size:0.86rem;line-height:1.7;margin-bottom:1.3rem;font-style:italic;}
+  .review-author{display:flex;align-items:center;gap:0.75rem;}
+  .author-avatar{width:48px;height:48px;border-radius:50%;background:var(--gold-dim);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;} .author-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+  .author-name{font-weight:600;font-size:0.86rem;}
+  .author-meta{color:var(--muted);font-size:0.73rem;}
+  #lien-he{display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:start;}
+  .contact-form{background:var(--card);border:1px solid var(--border);padding:2.3rem;border-radius:8px;}
+  .contact-form h3{font-family:'Playfair Display',serif;font-size:1.35rem;margin-bottom:1.6rem;color:var(--gold);}
+  .form-group{margin-bottom:1.1rem;}
+  .form-group label{display:block;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:0.45rem;}
+  .form-group input,.form-group select,.form-group textarea{width:100%;background:var(--deep);border:1px solid var(--border);border-radius:3px;padding:0.75rem 0.95rem;color:var(--white);font-family:'Be Vietnam Pro',sans-serif;font-size:0.88rem;outline:none;transition:border-color 0.3s;}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);}
+  .form-group select option{background:var(--deep);}
+  .form-group textarea{resize:vertical;min-height:90px;}
+  .submit-btn{width:100%;background:var(--gold);color:#1a1a00;padding:0.95rem;border:none;border-radius:3px;font-family:'Be Vietnam Pro',sans-serif;font-size:0.88rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;margin-top:0.4rem;}
+  .submit-btn:hover{background:var(--gold-lt);transform:translateY(-1px);}
+  .contact-info{padding-top:0.5rem;}
+  .contact-info h3{font-family:'Playfair Display',serif;font-size:1.7rem;margin-bottom:0.8rem;}
+  .contact-info>p{color:var(--muted);line-height:1.7;margin-bottom:1.8rem;font-size:0.92rem;}
+  .contact-channels{display:flex;flex-direction:column;gap:0.85rem;}
+  .channel{display:flex;align-items:flex-start;gap:1rem;padding:0.95rem 1.1rem;background:var(--card);border:1px solid var(--border);border-radius:6px;text-decoration:none;color:var(--white);transition:border-color 0.3s,transform 0.2s;}
+  .channel:hover{border-color:var(--gold);transform:translateX(4px);}
+  .channel-icon{font-size:1.25rem;flex-shrink:0;margin-top:0.1rem;}
+  .channel-label{font-size:0.68rem;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;}
+  .channel-val{font-size:0.88rem;font-weight:500;word-break:break-word;}
+  footer{background:var(--deep);border-top:1px solid var(--border);padding:2.8rem 5vw;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1.5rem;}
+  .footer-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1.05rem;}
+  .footer-logo span{color:var(--gold);}
+  .footer-since-block{background:linear-gradient(135deg,var(--gold),var(--gold-lt));color:#1a1a00;font-size:0.72rem;font-weight:800;letter-spacing:0.18em;padding:0.3rem 0.85rem;border-radius:3px;font-family:'Be Vietnam Pro',sans-serif;box-shadow:0 2px 12px rgba(240,180,41,0.35);}
+  .footer-copy{color:var(--muted);font-size:0.78rem;margin-top:0.35rem;line-height:1.7;}
+  .footer-copy a{color:var(--gold);text-decoration:none;}
+  .footer-flag{font-size:1.5rem;display:flex;gap:0.3rem;align-items:center;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+  @media(max-width:768px){
+    .hero{grid-template-columns:1fr;padding-top:5.5rem;padding-bottom:3.5rem;gap:2.5rem;}
+    .nav-links{display:none;}.nav-cta{display:none;}.hamburger{display:flex;}
+    #tieng-duc{grid-template-columns:1fr;}#tai-sao{grid-template-columns:1fr;}
+    #lien-he{grid-template-columns:1fr;}.stat-cards{grid-template-columns:1fr 1fr;}
+    .levels-grid{grid-template-columns:repeat(3,1fr);}.stat-num{font-size:1.6rem;}
+    .stat-label{font-size:0.7rem;}h1{font-size:clamp(2rem,8vw,3rem);}
+    h2{font-size:clamp(1.6rem,6vw,2.2rem);}.hero-badge{flex-wrap:wrap;}
+    .badge-text strong{font-size:0.82rem;}.step{grid-template-columns:50px 1fr;gap:1rem;}
+    .step-num{font-size:2rem;}.contact-form{padding:1.5rem;}
+    footer{flex-direction:column;align-items:flex-start;}.footer-flag{align-self:flex-end;}
+    .services-grid{grid-template-columns:1fr;}.service-card{padding:2rem 1.5rem;}
+    .why-item{padding:1rem;}.ticker-item{font-size:1.2rem;padding:0.25rem 0.6rem;}
+    section{padding:4rem 4vw;}.fact-row{flex-direction:column;align-items:flex-start;gap:0.2rem;}
+  }
+  @media(max-width:400px){
+    .stat-cards{grid-template-columns:1fr 1fr;}.levels-grid{grid-template-columns:repeat(2,1fr);}
+    h1{font-size:1.9rem;}.hero-sub{font-size:0.9rem;}
+    .btn-primary,.btn-outline{padding:0.75rem 1.4rem;font-size:0.8rem;}
+    .ticker-item{font-size:1rem;padding:0.2rem 0.45rem;}
+  }
+</style>
+</head>
+<body>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="closeMobileMenu()">✕</button>
+  <a href="#dich-vu" onclick="closeMobileMenu()">Dịch Vụ</a>
+  <a href="#tieng-duc" onclick="closeMobileMenu()">Tiếng Đức</a>
+  <a href="#lo-trinh" onclick="closeMobileMenu()">Lộ Trình</a>
+  <a href="#cam-nhan" onclick="closeMobileMenu()">Cảm Nhận</a>
+  <a href="#lien-he" onclick="closeMobileMenu()">Liên Hệ</a>
+  <button class="mobile-cta-btn" onclick="closeMobileMenu()">Đăng Ký Tư Vấn</button>
+</div>
+
+<nav id="mainNav">
+  <div class="logo">Hành Trình Việt Đức <span>–</span> Hoff</div>
+  <ul class="nav-links">
+    <li><a href="#dich-vu">Dịch Vụ</a></li>
+    <li><a href="#tieng-duc">Tiếng Đức</a></li>
+    <li><a href="#lo-trinh">Lộ Trình</a></li>
+    <li><a href="#cam-nhan">Cảm Nhận</a></li>
+    <li><a href="#lien-he">Liên Hệ</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('lien-he').scrollIntoView({behavior:'smooth'})">Đăng Ký Tư Vấn</button>
+  <button class="hamburger" onclick="openMobileMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="flag-bar"><span></span><span></span><span></span></div>
+  <div class="hero-text">
+    <div class="eyebrow">Từ Việt Nam · Đến Nước Đức</div>
+    <h1>Hành trình<br><em>vững chắc</em><br>sang Đức</h1>
+    <p class="hero-sub">
+      <span class="brand-hoff">Hành Trình Việt Đức – Hoff</span> đồng hành từ buổi học A1 đầu tiên cho đến khi bạn ổn định tại Đức — không để bạn bước đi một mình trên hành trình Việt–Đức.
+    </p>
+    <div class="hero-btns">
+      <a href="#lien-he" class="btn-primary">Bắt Đầu Ngay</a>
+      <a href="#dich-vu" class="btn-outline">Xem Dịch Vụ</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="stat-cards">
+      <div class="stat-card"><div class="stat-num">14+</div><div class="stat-label">Năm kinh nghiệm (từ 2011)</div></div>
+      <div class="stat-card"><div class="stat-num">500+</div><div class="stat-label">Học viên đã sang Đức thành công</div></div>
+      <div class="stat-card"><div class="stat-num">20K+</div><div class="stat-label">Lượt tiếp cận website</div></div>
+      <div class="stat-card"><div class="stat-num">6.8K+</div><div class="stat-label">Câu hỏi tư vấn đã hỗ trợ</div></div>
+    </div>
+    <div class="level-ticker">
+      <div class="ticker-label">Lộ trình trình độ theo Khung CEFR</div>
+      <div class="ticker-track" id="tickerTrack">
+        <div class="ticker-item active" data-i="0">A1</div>
+        <div class="ticker-arrow">→</div>
+        <div class="ticker-item" data-i="1">A2</div>
+        <div class="ticker-arrow">→</div>
+        <div class="ticker-item" data-i="2">B1</div>
+        <div class="ticker-arrow">→</div>
+        <div class="ticker-item" data-i="3">B2</div>
+      </div>
+    </div>
+    <div class="hero-badge">
+      <div class="badge-icon">🏛️</div>
+      <div class="badge-text">
+        <strong>Trung Tâm Đức Ngữ Lila · Khoa Tiếng Đức – Trường TC Bách Khoa Hải Phòng</strong>
+        <span>Đơn vị đào tạo chính thức & được công nhận</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DỊCH VỤ -->
+<section id="dich-vu">
+  <div class="services-header">
+    <div class="section-tag">Dịch Vụ</div>
+    <h2>Không chỉ là <em>một nơi học tiếng</em></h2>
+    <p class="section-desc">
+      <span class="brand-hoff">Hành Trình Việt Đức – Hoff</span> sở hữu sẵn hệ thống đơn vị đào tạo và tư vấn — để học viên được tiếp nhận, đào tạo và định hướng ngay dưới một mái nhà.
+    </p>
+  </div>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-icon">🎓</div>
+      <h3>Trung Tâm Đức Ngữ Lila</h3>
+      <p>Trung tâm ngoại ngữ chuyên sâu tiếng Đức, đào tạo từ A1 đến B2 theo chuẩn CEFR. Giảng viên có kinh nghiệm thực tế tại Đức, giáo trình cập nhật theo đề thi TELC, Goethe-Prüfung và ÖSD — ba hệ thống chứng chỉ tiếng Đức quốc tế được CHLB Đức công nhận.</p>
+      <div class="service-tags">
+        <span class="tag">A1 – B2</span>
+        <span class="tag">TELC Prep</span>
+        <span class="tag">Goethe Prep</span>
+        <span class="tag">ÖSD Prep</span>
+        <span class="tag">Lớp nhỏ</span>
+      </div>
+    </div>
+
+    <!-- FIX 2: Thay ngành y khoa → nhà hàng, khách sạn, bếp, IT, kế toán, bán hàng -->
+    <div class="service-card featured">
+      <div class="service-num">02</div>
+      <div class="service-icon">🏫</div>
+      <h3>Khoa Tiếng Đức – Trường TC Bách Khoa Hải Phòng</h3>
+      <p>Đơn vị đào tạo chính thức, được Sở Giáo dục & Đào tạo công nhận. Trường đào tạo hệ trung cấp các ngành nghề như: Nhà hàng – Khách sạn, Bếp (Đầu bếp chuyên nghiệp), Công nghệ thông tin, Kế toán doanh nghiệp, Bán hàng & Quản lý bán lẻ, Điện công nghiệp, Hàn, Cắt gọt kim loại — với chương trình kết hợp tiếng Đức chuyên ngành ngay trong quá trình học.</p>
+      <p style="margin-top:0.6rem;">Học viên hoàn tất chương trình trung cấp nghề tại Việt Nam có thể được hỗ trợ làm hồ sơ <strong>Anerkennung</strong> (công nhận bằng cấp tại Đức) — rút ngắn thời gian Ausbildung từ 2 đến 2,5 năm khi sang CHLB Đức.</p>
+      <div class="service-tags">
+        <span class="tag">Nhà hàng – Khách sạn</span>
+        <span class="tag">Bếp</span>
+        <span class="tag">IT</span>
+        <span class="tag">Kế toán</span>
+        <span class="tag">Bán hàng</span>
+        <span class="tag">Anerkennung</span>
+        <span class="tag">Chính thức</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-icon">📋</div>
+      <h3>Tư Vấn & Hồ Sơ Du Học Nghề</h3>
+      <p>Đội ngũ tư vấn am hiểu quy trình Ausbildung — từ chọn ngành, tìm đơn vị đào tạo tại Đức, đến chuẩn bị hồ sơ xin visa và phỏng vấn Đại sứ quán. Tỷ lệ visa đạt trên 90%.</p>
+      <div class="service-tags">
+        <span class="tag">Ausbildung</span>
+        <span class="tag">Hồ sơ visa</span>
+        <span class="tag">Phỏng vấn</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-icon">✈️</div>
+      <h3>Hỗ Trợ Sau Khi Đến Đức</h3>
+      <p>Hoff không dừng lại hợp tác sau khi bạn đến Đức. Hành trình tiếp tục với hỗ trợ Anmeldung, mở tài khoản ngân hàng, tìm chỗ ở, kết nối cộng đồng người Việt tại Đức và đồng hành hội nhập dài hạn.</p>
+      <div class="service-tags">
+        <span class="tag">Anmeldung</span>
+        <span class="tag">Nhà ở</span>
+        <span class="tag">Hội nhập</span>
+        <span class="tag">Cộng đồng</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TIẾNG ĐỨC -->
+<section id="tieng-duc">
+  <div>
+    <div class="section-tag">Chương Trình Đào Tạo</div>
+    <h2>Tiếng Đức <em>chuẩn quốc tế</em></h2>
+    <p class="section-desc">Giảng dạy theo Khung Tham chiếu Ngôn ngữ Chung châu Âu (CEFR) — chuẩn quốc tế được các trường Đức, Áo, Thụy Sĩ công nhận. Mỗi cấp độ được thiết kế để học viên sẵn sàng thi chứng chỉ TELC, Goethe-Prüfung hoặc ÖSD ngay sau khóa học.</p>
+    <div class="cefr-note">
+      <strong>📐 Khung CEFR là gì?</strong> — CEFR (Common European Framework of Reference for Languages) là hệ thống phân loại trình độ ngôn ngữ từ A1 (sơ cấp) đến C2 (thành thạo), được châu Âu và toàn thế giới sử dụng để đánh giá năng lực ngoại ngữ. Để học nghề tại Đức (Ausbildung), thông thường bạn cần đạt tối thiểu <strong>B1–B2</strong>.
+    </div>
+    <div class="german-quote">
+      <p>„Übung macht den Meister."</p>
+      <small>Luyện tập tạo nên bậc thầy — tục ngữ Đức</small>
+    </div>
+  </div>
+  <div>
+    <div class="levels-grid">
+      <div class="level-card"><div class="level-name">A1</div><div class="level-desc">Sơ cấp 1</div></div>
+      <div class="level-card"><div class="level-name">A2</div><div class="level-desc">Sơ cấp 2</div></div>
+      <div class="level-card hl"><div class="level-name">B1</div><div class="level-desc">Trung cấp 1</div></div>
+      <div class="level-card hl"><div class="level-name">B2</div><div class="level-desc">Trung cấp 2</div></div>
+      <div class="level-card"><div class="level-name">C1</div><div class="level-desc">Nâng cao</div></div>
+      <div class="level-card"><div class="level-name">C2</div><div class="level-desc">Thành thạo</div></div>
+    </div>
+    <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:0.6rem;">
+      <div class="fact-row"><span class="fact-label">Chứng chỉ luyện thi</span><span class="fact-value">TELC · Goethe-Prüfung · ÖSD</span></div>
+      <div class="fact-row"><span class="fact-label">Chuẩn đề thi Ausbildung</span><span class="fact-value">B1 – B2</span></div>
+      <div class="fact-row"><span class="fact-label">Hình thức học</span><span class="fact-value">Trực tiếp · Online</span></div>
+      <div class="fact-row"><span class="fact-label">Sĩ số lớp</span><span class="fact-value">Tối đa 12 học viên</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LỘ TRÌNH -->
+<section id="lo-trinh">
+  <div class="section-tag">Lộ Trình</div>
+  <h2>Từ A1 <em>đến Đức</em> — từng bước</h2>
+  <p class="section-desc">Hành trình được thiết kế rõ ràng — bạn luôn biết mình đang ở đâu và bước tiếp theo là gì.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num">01</div><div><h4>Tư vấn & định hướng ngành nghề</h4><p>Phân tích năng lực, sở thích và điều kiện cá nhân. Lựa chọn ngành Ausbildung phù hợp thị trường lao động Đức và khả năng của bạn.</p></div></div>
+    <div class="step"><div class="step-num">02</div><div><h4>Học tiếng Đức A1 → B2</h4><p>Đào tạo bài bản theo lộ trình CEFR tại Trung Tâm Đức Ngữ Lila hoặc Khoa Tiếng Đức — Trường TC Bách Khoa Hải Phòng. Luyện thi chứng chỉ TELC / Goethe.</p></div></div>
+    <div class="step"><div class="step-num">03</div><div><h4>Chuẩn bị hồ sơ & nộp đơn</h4><p>Hoàn thiện CV Đức (Lebenslauf), thư động cơ, bằng cấp dịch thuật công chứng. Kết nối trực tiếp với doanh nghiệp đối tác tại Đức.</p></div></div>
+    <div class="step"><div class="step-num">04</div><div><h4>Phỏng vấn & xin visa</h4><p>Luyện phỏng vấn với nhà tuyển dụng Đức, hỗ trợ toàn bộ quy trình xin visa Ausbildung tại Đại sứ quán Đức. Tỷ lệ đậu trên 90%.</p></div></div>
+    <div class="step"><div class="step-num">05</div><div><h4>Bay sang Đức & hội nhập</h4><p>Hoff không dừng lại hợp tác khi bạn hạ cánh. Hỗ trợ Anmeldung, mở tài khoản, tìm chỗ ở và kết nối cộng đồng — đồng hành dài hạn tại Đức.</p></div></div>
+  </div>
+</section>
+
+<!-- TẠI SAO -->
+<section id="tai-sao">
+  <div>
+    <div class="section-tag">Tại Sao Hành Trình Việt Đức – Hoff</div>
+    <h2>Lý do <em>2.000+ người</em> tin chọn</h2>
+    <div class="why-list">
+      <div class="why-item"><div class="why-icon">🏛️</div><div><h4>Hệ thống đơn vị sẵn có</h4><p>Trường TC Bách Khoa Hải Phòng sở hữu Trung Tâm Đức Ngữ Lila và Khoa Tiếng Đức chính thức — học viên được tiếp nhận và đào tạo trong cùng một hệ thống, không qua trung gian.</p></div></div>
+      <div class="why-item"><div class="why-icon">📅</div><div><h4>14 năm kinh nghiệm (từ 2011)</h4><p>Hơn 14 năm chuyên sâu thị trường lao động Đức — hiểu rõ từng ngành nghề, từng yêu cầu visa và từng biến động của chính sách nhập cư Đức.</p></div></div>
+      <div class="why-item"><div class="why-icon">🤝</div><div><h4>Không bỏ rơi sau visa</h4><p><span class="brand-hoff">Hoff</span> không dừng lại hợp tác sau khi bạn đến Đức. Tiếp tục đồng hành Anmeldung, hội nhập, và cuộc sống tại Đức — vì hành trình thật sự bắt đầu khi bạn hạ cánh.</p></div></div>
+      <div class="why-item"><div class="why-icon">🎯</div><div><h4>Tỷ lệ visa 90%+</h4><p>Quy trình hồ sơ được chuẩn hóa qua nhiều năm — tỷ lệ đậu visa Ausbildung luôn duy trì trên 90%, thuộc nhóm cao nhất tại Hải Phòng.</p></div></div>
+    </div>
+  </div>
+  <div>
+    <div class="section-tag">Dữ Liệu</div>
+    <h2>Những <em>con số</em> nói lên</h2>
+    <div style="margin-top:1.5rem;">
+      <div class="fact-row"><span class="fact-label">Hoạt động từ</span><span class="fact-value">2011</span></div>
+      <div class="fact-row"><span class="fact-label">Học viên đã sang Đức</span><span class="fact-value">500+</span></div>
+      <div class="fact-row"><span class="fact-label">Tỷ lệ đậu visa</span><span class="fact-value">&gt; 90%</span></div>
+      <div class="fact-row"><span class="fact-label">Đối tác doanh nghiệp tại Đức</span><span class="fact-value">80+</span></div>
+      <div class="fact-row"><span class="fact-label">Ngành Ausbildung hỗ trợ</span><span class="fact-value">20+</span></div>
+      <div class="fact-row"><span class="fact-label">Lượt tiếp cận website</span><span class="fact-value">20,000+</span></div>
+      <div class="fact-row"><span class="fact-label">Câu hỏi tư vấn đã giải đáp</span><span class="fact-value">6,800+</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- THỐNG KÊ -->
+<section id="thong-ke" style="padding-top:3rem;padding-bottom:3rem;">
+  <div class="section-tag" style="margin-bottom:0.4rem;">Tổng Quan</div>
+  <h2 style="margin-bottom:0.5rem;">Hành Trình Việt Đức – Hoff : <em>Con Số Thực Tế</em></h2>
+  <div class="stats-bar">
+    <div class="stats-bar-card"><div class="stats-bar-num">20,000+</div><div class="stats-bar-label">Lượt tiếp cận trang web</div></div>
+    <div class="stats-bar-card"><div class="stats-bar-num">6,800+</div><div class="stats-bar-label">Người quan tâm & đặt câu hỏi</div></div>
+    <div class="stats-bar-card"><div class="stats-bar-num">500+</div><div class="stats-bar-label">Học viên sang Đức thành công</div></div>
+    <div class="stats-bar-card"><div class="stats-bar-num">14+</div><div class="stats-bar-label">Năm kinh nghiệm liên tục</div></div>
+  </div>
+</section>
+
+<!-- CẢM NHẬN -->
+<section id="cam-nhan">
+  <div class="section-tag">Cảm Nhận</div>
+  <h2>Học viên <em>chia sẻ</em></h2>
+  <p class="section-desc">Những câu chuyện thật từ những người đã bước qua hành trình — với sự đồng hành của <span class="brand-hoff">Hành Trình Việt Đức – Hoff</span> — từ bàn học tiếng Đức đến cuộc sống ổn định tại CHLB Đức.</p>
+  <div class="reviews-grid">
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Mình học A1 tại <span class="brand-hoff">Hoff</span> năm 2019 không biết gì về tiếng Đức cả. Giờ mình đã hoàn thành Ausbildung ngành điều dưỡng ở Frankfurt, đang làm chính thức với mức lương 3.800€/tháng. <span class="brand-hoff">Hoff</span> đã thay đổi cuộc đời mình thật sự.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="data:image/jpeg;base64,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" alt="avatar"></div>
+        <div><div class="author-name">Nguyễn Thị Lan Anh</div><div class="author-meta">Điều dưỡng · Frankfurt am Main · 2020</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Trước mình từng thử học qua một trung tâm khác nhưng hồ sơ bị từ chối visa. Sang <span class="brand-hoff">Hoff</span>, đội ngũ làm hồ sơ kỹ lắm, visa được duyệt trong lần đầu. Hiện tại mình đang học nghề cơ điện tử tại Bayern.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="https://randomuser.me/api/portraits/men/8.jpg" onerror="this.src='https://i.pravatar.cc/96?img=8';this.onerror=function(){this.src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><circle cx="48" cy="48" r="48" fill="#7eb8d4"/><text x="48" y="56" text-anchor="middle" font-size="28" font-family="sans-serif" font-weight="700" fill="white">VĐ</text></svg>'}" alt="avatar" loading="lazy"></div>
+        <div><div class="author-name">Trần Văn Đức</div><div class="author-meta">Cơ điện tử · Bayern · 2021</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Thi B2 lần đầu đậu luôn nhờ luyện đề sát với đề thật. Qua Đức rồi mà vẫn được <span class="brand-hoff">Hoff</span> hỗ trợ đăng ký Anmeldung, mở tài khoản Sparkasse. Cảm giác không bị bỏ rơi khi ở xứ người.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="data:image/jpeg;base64,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" alt="avatar"></div>
+        <div><div class="author-name">Phạm Thị Mai</div><div class="author-meta">Kế toán · Hamburg · 2022</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Mình từng nghĩ tiếng Đức quá khó, đã định bỏ cuộc ở A2. Thầy cô <span class="brand-hoff">Hoff</span> kiên nhẫn lắm, không ai bị bỏ lại phía sau. Giờ mình đang hoàn thành năm thứ hai Ausbildung ngành bếp ở Berlin.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="https://randomuser.me/api/portraits/men/15.jpg" onerror="this.src='https://i.pravatar.cc/96?img=15';this.onerror=function(){this.src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><circle cx="48" cy="48" r="48" fill="#7eb8d4"/><text x="48" y="56" text-anchor="middle" font-size="28" font-family="sans-serif" font-weight="700" fill="white">QH</text></svg>'}" alt="avatar" loading="lazy"></div>
+        <div><div class="author-name">Lê Quang Huy</div><div class="author-meta">Đầu bếp · Berlin · 2021</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Quy trình hồ sơ của <span class="brand-hoff">Hoff</span> rất minh bạch. Mỗi bước đều được giải thích rõ, không có phí ẩn. Gia đình mình yên tâm vì biết con được đồng hành tận nơi, không phải tự bơi khi mới đến Đức.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="data:image/jpeg;base64,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" alt="avatar"></div>
+        <div><div class="author-name">Ngô Thị Thu Hương</div><div class="author-meta">Kỹ thuật máy · Stuttgart · 2022</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Mình sang Đức năm 2020, lúc dịch COVID cực kỳ khó khăn. <span class="brand-hoff">Hoff</span> vẫn theo sát, giúp mình liên hệ được với chủ Ausbildung và không bị gián đoạn hợp đồng. Ơn này không quên được.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="https://randomuser.me/api/portraits/men/22.jpg" onerror="this.src='https://i.pravatar.cc/96?img=22';this.onerror=function(){this.src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><circle cx="48" cy="48" r="48" fill="#7eb8d4"/><text x="48" y="56" text-anchor="middle" font-size="28" font-family="sans-serif" font-weight="700" fill="white">MK</text></svg>'}" alt="avatar" loading="lazy"></div>
+        <div><div class="author-name">Vũ Minh Khoa</div><div class="author-meta">Y tá · Köln · 2020</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Lớp học nhỏ, thầy chú ý từng người. Mình phát âm kém nhưng được luyện riêng thêm sau giờ học. Thi TELC B1 điểm cao, phỏng vấn với công ty Đức tự tin hẳn.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="data:image/jpeg;base64,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" alt="avatar"></div>
+        <div><div class="author-name">Đỗ Thị Thanh Vân</div><div class="author-meta">Logistics · Düsseldorf · 2023</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Mình là mẹ đơn thân, lo lắng nhiều lắm khi quyết định sang Đức. <span class="brand-hoff">Hoff</span> không chỉ giúp hồ sơ mà còn kết nối mình với cộng đồng người Việt ở Hannover trước khi bay. Ấm lòng lắm.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="data:image/jpeg;base64,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" alt="avatar"></div>
+        <div><div class="author-name">Nguyễn Thị Bích Ngọc</div><div class="author-meta">Chăm sóc người già · Hannover · 2022</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Khóa B2 của <span class="brand-hoff">Hoff</span> chạy đúng giáo trình Goethe, luyện kỹ 4 kỹ năng nghe-nói-đọc-viết. Mình đạt B2 sau 8 tháng, nhanh hơn dự kiến. Giờ thu nhập Ausbildung ở Đức hơn 1.200€/tháng.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="https://randomuser.me/api/portraits/men/31.jpg" onerror="this.src='https://i.pravatar.cc/96?img=31';this.onerror=function(){this.src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><circle cx="48" cy="48" r="48" fill="#7eb8d4"/><text x="48" y="56" text-anchor="middle" font-size="28" font-family="sans-serif" font-weight="700" fill="white">VT</text></svg>'}" alt="avatar" loading="lazy"></div>
+        <div><div class="author-name">Hoàng Văn Tùng</div><div class="author-meta">IT · München · 2023</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text"><span class="brand-hoff">Hoff</span> dạy tiếng Đức theo hướng ứng dụng thực tế — giao tiếp nơi làm việc, đặt lịch bác sĩ, viết email. Sang Đức là dùng được luôn, không bị sốc ngôn ngữ như nhiều bạn khác.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="data:image/jpeg;base64,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" alt="avatar"></div>
+        <div><div class="author-name">Trần Thị Hồng Nhung</div><div class="author-meta">Khách sạn · Heidelberg · 2021</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Ba mình gần 40 tuổi vẫn theo học được. Thầy cô kiên nhẫn, giải thích tiếng Việt rõ ràng. Sau 1 năm đạt B1, hiện đang làm thợ hàn ở Dortmund, gửi tiền về nuôi gia đình.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="https://randomuser.me/api/portraits/men/44.jpg" onerror="this.src='https://i.pravatar.cc/96?img=44';this.onerror=function(){this.src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><circle cx="48" cy="48" r="48" fill="#7eb8d4"/><text x="48" y="56" text-anchor="middle" font-size="28" font-family="sans-serif" font-weight="700" fill="white">VB</text></svg>'}" alt="avatar" loading="lazy"></div>
+        <div><div class="author-name">Lê Văn Bình</div><div class="author-meta">Thợ hàn · Dortmund · 2022</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Mình học online vì ở xa Hải Phòng nhưng chất lượng không thua gì học trực tiếp. <span class="brand-hoff">Hoff</span> dạy qua Zoom có tương tác, có bài tập gửi về, có sửa phát âm. Rất chuyên nghiệp và đúng giờ.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="data:image/jpeg;base64,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" alt="avatar"></div>
+        <div><div class="author-name">Phạm Ngọc Anh</div><div class="author-meta">Điện tử · Bremen · 2023</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Mình tự học tiếng Đức 6 tháng trước nhưng không có hệ thống. Vào <span class="brand-hoff">Hoff</span> học lại từ A2, thầy sắp xếp bài bản, ngữ pháp nền tảng rõ ràng. 5 tháng sau thi B1 đậu ngay lần đầu.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="data:image/jpeg;base64,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" alt="avatar"></div>
+        <div><div class="author-name">Đinh Thị Lan</div><div class="author-meta">Dược · Magdeburg · 2023</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Phỏng vấn với chủ Ausbildung bên Đức qua video call, <span class="brand-hoff">Hoff</span> luyện trước với mình đến 5 lần. Hỏi đến đâu trả lời được đến đó. Nhận được hợp đồng ngay buổi phỏng vấn đầu tiên.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="https://randomuser.me/api/portraits/men/55.jpg" onerror="this.src='https://i.pravatar.cc/96?img=55';this.onerror=function(){this.src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><circle cx="48" cy="48" r="48" fill="#7eb8d4"/><text x="48" y="56" text-anchor="middle" font-size="28" font-family="sans-serif" font-weight="700" fill="white">TL</text></svg>'}" alt="avatar" loading="lazy"></div>
+        <div><div class="author-name">Bùi Thanh Long</div><div class="author-meta">Cơ khí · Nürnberg · 2022</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text"><span class="brand-hoff">Hoff</span> kết nối mình với cộng đồng người Việt tại Leipzig trước khi sang. Ngày đầu tiên đến đã có người đón, hướng dẫn đăng ký thành phố. Không bị lạc lõng dù là lần đầu ra nước ngoài.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="data:image/jpeg;base64,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" alt="avatar"></div>
+        <div><div class="author-name">Nguyễn Thị Thu</div><div class="author-meta">Siêu thị · Leipzig · 2021</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Mình được học bổng một phần từ doanh nghiệp Đức nhờ <span class="brand-hoff">Hoff</span> kết nối và hỗ trợ viết thư ứng tuyển. Giờ vừa học nghề vừa được nhận lương Ausbildung 1.050€ mỗi tháng.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="https://randomuser.me/api/portraits/men/66.jpg" onerror="this.src='https://i.pravatar.cc/96?img=66';this.onerror=function(){this.src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><circle cx="48" cy="48" r="48" fill="#7eb8d4"/><text x="48" y="56" text-anchor="middle" font-size="28" font-family="sans-serif" font-weight="700" fill="white">VH</text></svg>'}" alt="avatar" loading="lazy"></div>
+        <div><div class="author-name">Cao Văn Hải</div><div class="author-meta">Xây dựng · Dresden · 2023</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Tư vấn của <span class="brand-hoff">Hoff</span> không bao giờ tạo áp lực hay rush hồ sơ. Đợi đúng thời điểm visa phù hợp, kết quả là đợt đó 5 bạn cùng nhóm đều đậu. Cảm giác đi cùng đồng đội rất vui.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABgAGADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDk1FSqOaao5qVRVmY9RUoFNUcipVFIaEC0nBzgg1geINRf7QLCB2QBd0rKcE56L/U/hVbw9b3UkF81sdksEfmgAZ3AdQfqM0m7alpXOmIxxTCBT4n863il4xIgbj3pCOaZDIiBUbqKnIqNhTEVmAqJgKssKhYUAWF61MoqJamWgRIoqZRxUa1MtSy0cFqMu7WLtj1MpA/Dj+le0fDmy07S9FNxK6CZ0DzBkO4KfbHP4V4ooWbxKityrXJz/wB9V9B6PpGk2+LFYHa3vo3V1yzZzz17VhUlsjqowtdnBaysNr4n1OwtwRBFIJIuMYRwHAx/wKqRHNaPiiC2g+Ieqw2kaxwwWlrFsUYAOwn+RFZ561tF6HNU+IYRTGFSmmNVGZXYVCwqy1QuKYEi9alSohUyUCRKoqZaiSnu4jheRjgKpJ/KoZpE8+hkI15Soy3nZA9ea9s0nU7CRY7u/wBRms4rJC865YDaPXB/WvDLC5WDV4b2WMyRxzK7qOu3PJr33xLpVtcfDXV72wVWaexVt6ch03Kxb/vkH8q5qid0d1KaSdtzgodQbW77UtadChv7tpEVuqxqAqA/QCpj1qO0SOK2WKNlYJkfKfcmpWFdMdjin8Qw0xqkqNhVIzZC1Qv0qdqhamA5anXtUC8CploYidazvEV01poshQAtIRHz79a0V6Vk+KgDoTcciRCPzqWaRORhw1uWGI2Xo2Mj/PtXtXwY19LzTZ/D966yIytJboemzo6c/XOPc14nZ5kSSHj5lIH17Vs+GtWm0PVrLUrQ4ZXWQL239CPowyp+oolHmViouzuXdQiuNF1u4t5GZZbS4eBvcBuM/UEV0MciyxJIv3WGRV/4n2dpc6rYa3aDNprVmJM/9NEwPz2lfxWud0K5LwPbsRuibge1C2FL4jSNMapDUb0IhkLVC1TPULniqJFU1MhqupqZDQwLCmq+rWwu9LniJx8pYH6CplNS4DKVYZBGCKhmkWeZWkmyZWyB9atxt5dzJA3CFyR6gHmotTtv7O1aeBcbUfKem08j/Cuw03wtpni7YPD93cW2qJGGawvlyjAcHZKo9+AwpuVlqUot7GvJe/2j8LrNZDmbTdTEY9klVv65rmtLiujdXt/CMw280SOOcuZBgKo7nhjj2q/e2Wo+HbO+0bUoTBJJLbzAbgVYAtyCOD1Irs/Bd9oPhnQobzUr6GO5lla4WMjc+SAoIA77QBntk+tS5cq0LjDm30MSRGRirKVYcEMMEH3HaoWpbvXP7X1++n2bYbiVng6ZC+h98DP50j1RiyB6gepmqFzTIFRHYFlUlV6kDgfWpE56UyOZ0RkXG1/vDHWpFkJpe9ctKFtyZDUimoFNSqaGETmfGdqB9mvVHcxP/Mf1q/4N8UGwszZwRpGUIf7Pbblm1KYthEd/4UXOSBjI9cmq3jKZV0iOIkbnlBAz2APP6iuMgufKcPkgj060rXVmaRk4u6PdJviPpEeoyWfiHTIb6G0C4u1hDqZv49i87UHQeuM1w3jTW9L1PxJNdaK8C27IjhE+RSejD0BPX61x/wBugmhaJhJlhgACuy0HSoLfSI/Nt4Wkky5JUMcHkDJHp2pKCi7oqVRyVmino8sk17GY8tDgsXCnb06ZroHNOACqFUAAcADoKY9XuYMhZqgbk1M1QnvTEf/Z" alt="avatar"></div>
+        <div><div class="author-name">Trần Thị Ngọc Hà</div><div class="author-meta">Nhà hàng · Bonn · 2022</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Mình là kỹ sư nhưng sang Đức học Ausbildung lại từ đầu theo lĩnh vực mới. <span class="brand-hoff">Hoff</span> tư vấn ngành phù hợp với bằng Việt Nam để được miễn giảm thời gian học — tiết kiệm gần 1 năm so với bình thường.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="https://randomuser.me/api/portraits/men/77.jpg" onerror="this.src='https://i.pravatar.cc/96?img=77';this.onerror=function(){this.src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><circle cx="48" cy="48" r="48" fill="#7eb8d4"/><text x="48" y="56" text-anchor="middle" font-size="28" font-family="sans-serif" font-weight="700" fill="white">VP</text></svg>'}" alt="avatar" loading="lazy"></div>
+        <div><div class="author-name">Lý Văn Phong</div><div class="author-meta">Tự động hóa · Wolfsburg · 2023</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Nhờ có <span class="brand-hoff">Hoff</span> mà mình không bị các trung tâm "ma" lừa. Học phí rõ ràng, hợp đồng minh bạch. Gia đình mình tiết kiệm được một khoản lớn so với các nơi kêu phí trọn gói rồi biến mất.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="data:image/jpeg;base64,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" alt="avatar"></div>
+        <div><div class="author-name">Phan Thị Kim Chi</div><div class="author-meta">Y tế · Münster · 2021</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Sau 3 năm Ausbildung mình tốt nghiệp và được nhận vào làm chính thức tại công ty Đức. Thu nhập hiện tại 2.400€/tháng. Hành trình bắt đầu từ lớp A1 của <span class="brand-hoff">Hoff</span> năm 2018 — cảm ơn thầy cô rất nhiều.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="https://randomuser.me/api/portraits/men/88.jpg" onerror="this.src='https://i.pravatar.cc/96?img=88';this.onerror=function(){this.src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><circle cx="48" cy="48" r="48" fill="#7eb8d4"/><text x="48" y="56" text-anchor="middle" font-size="28" font-family="sans-serif" font-weight="700" fill="white">VT</text></svg>'}" alt="avatar" loading="lazy"></div>
+        <div><div class="author-name">Nguyễn Văn Thắng</div><div class="author-meta">Kỹ sư CNC · Hamburg · 2018 → Fulltime 2022</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Mình từng bị một trung tâm khác lấy gần 200 triệu, hứa visa trong 3 tháng rồi im bặt luôn. Mất tiền, mất thời gian, mất niềm tin. May mắn tìm được <span class="brand-hoff">Hoff</span> — không đòi tiền trước, hợp đồng rõ ràng từng điều khoản. Giờ mình đang học Ausbildung ngành bán hàng ở Dortmund, bình yên thật sự.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="data:image/jpeg;base64,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" alt="avatar"></div>
+        <div>
+          <div class="author-name">Nguyễn Thị Hồng Loan</div>
+          <div class="author-meta">Bán hàng · Dortmund · 2023</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Thi TELC B1 trượt 3 lần liên tiếp, mình gần như bỏ cuộc. Sang <span class="brand-hoff">Hoff</span> học lại, thầy phân tích từng lỗi sai, luyện riêng phần Hörverstehen vốn là điểm yếu nhất. Lần thứ 4 thi là đậu, điểm còn khá nữa. Bây giờ nghĩ lại thấy may mắn vì không bỏ cuộc.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="https://randomuser.me/api/portraits/men/11.jpg" onerror="this.src='https://i.pravatar.cc/96?img=11';this.onerror=function(){this.src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><circle cx="48" cy="48" r="48" fill="#7eb8d4"/><text x="48" y="56" text-anchor="middle" font-size="28" font-family="sans-serif" font-weight="700" fill="white">QB</text></svg>'}" alt="avatar" loading="lazy"></div>
+        <div>
+          <div class="author-name">Trần Quốc Bảo</div>
+          <div class="author-meta">Nhà hàng · Hannover · 2022</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Thật lòng mà nói, mình vào lớp A1 mà không phân biệt nổi "der, die, das". Học cả tuần vẫn không nhớ. Thầy không chê, chỉ bảo: "học ngôn ngữ không có người ngu, chỉ có người chưa tìm đúng cách học". Đúng vậy thật — 14 tháng sau mình thi B2 đậu, đang làm IT Ausbildung ở Köln.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="https://randomuser.me/api/portraits/men/33.jpg" onerror="this.src='https://i.pravatar.cc/96?img=33';this.onerror=function(){this.src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><circle cx="48" cy="48" r="48" fill="#7eb8d4"/><text x="48" y="56" text-anchor="middle" font-size="28" font-family="sans-serif" font-weight="700" fill="white">MT</text></svg>'}" alt="avatar" loading="lazy"></div>
+        <div>
+          <div class="author-name">Lê Minh Triết</div>
+          <div class="author-meta">IT · Köln · 2023</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Hồ sơ mình nộp qua một đơn vị khác, chờ gần 8 tháng mà họ cứ nói "đang xử lý". Hỏi thêm thì bảo nộp thêm phí. Mình rút ra, tìm đến <span class="brand-hoff">Hoff</span> — chỉ 4 tháng sau là có hợp đồng Ausbildung từ doanh nghiệp Đức. Đừng để người ta om hồ sơ của mình mãi.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="https://randomuser.me/api/portraits/men/55.jpg" onerror="this.src='https://i.pravatar.cc/96?img=55';this.onerror=function(){this.src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><circle cx="48" cy="48" r="48" fill="#7eb8d4"/><text x="48" y="56" text-anchor="middle" font-size="28" font-family="sans-serif" font-weight="700" fill="white">VK</text></svg>'}" alt="avatar" loading="lazy"></div>
+        <div>
+          <div class="author-name">Phạm Văn Kiên</div>
+          <div class="author-meta">Cơ khí · Essen · 2022</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Mình tự tìm hợp đồng Ausbildung trên mạng gần 1 năm không ra. Nộp hơn 40 đơn, hồi âm được 2 cái mà cũng chẳng đến đâu. Vào <span class="brand-hoff">Hoff</span>, họ có sẵn mạng lưới 80+ đối tác doanh nghiệp Đức — mình được kết nối trực tiếp, phỏng vấn và nhận hợp đồng sau 6 tuần. Khác hoàn toàn so với tự làm.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gA7Q1JFQVRPUjogZ2QtanBlZyB2MS4wICh1c2luZyBJSkcgSlBFRyB2NjIpLCBxdWFsaXR5ID0gNzUK/9sAQwAIBgYHBgUIBwcHCQkICgwUDQwLCwwZEhMPFB0aHx4dGhwcICQuJyAiLCMcHCg3KSwwMTQ0NB8nOT04MjwuMzQy/9sAQwEJCQkMCwwYDQ0YMiEcITIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy/8AAEQgAYABgAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A99xRRRQAUUUjEKM0AKTXHeIfid4W8N3n2S9v2kuB9+O2jMhj/wB4jgVxvxO+K8ukyPpHh+SI3XKz3R+by/ZR0z79q8NR5HYSXEzZfJ9CT70ikl1PqHR/in4P1m6Ftb6qscrHCrcIY8n2J4rsxhgCDkHoa+NYrCS6EksMEbCJdzKzYOB3GK9k+G3xStVtLLQtWeRJV/dRzyNkYz8qk9eBxk+1CBo9mwfWkwaUHIpaZI3GaPY06igAooooAK5P4g61LovhS7uYG2zEBEx1Oev6ZrrDXBfEi3a902C0VHLvMhDKpO0E7Sf1pN2RUFd2PC7Hw3qOtagtzeAedKd4gUbnx7qOFH1IrsYfhTJeyCW9n8pe0cfJH1PQfhmutll0nwakdhbNZiTbvkNxMQ8nqxwCfxNaejeIxqqqBaxiNhlJYLgSo36Aj8qwc2dipxXQ5uD4d6TYQsIw3mkY3qcV554r8J3Wlh5wN8IOVlX+H6jt9a9c1zxBHYbgkEbAcNJNcLEi/ia5i71ePW7aS2WS0ZmXGLefzMfUECoUmtSnBPSx13wd8S3HiDwf5N4zvdWEnkPKzbt4xlTn1xx+FeiV5F8DUt7PTNQgM0BmuLhnVBxJhDtwfUY5H1r16upO5wyVmJRRS0yRKKKKACsvW7P7TYsR9+MiQe+0g4/StSq92Gmie3jyGkUqX7ID1P19qTV1YcW07o5mW0sbtt1xCj5X5XI5Kntn0qJF0vTGjSNY7cMcLxjOB/StPVbH7OqPEAIsBQP7tc9ew6qFJtrt2Uj7mxP69RXLJOLsehBqavcr2i6Pri3EEgguUDPk9QRnkVl6rY6Xpjn7HZq1y+FDKNzHsAO/4U9Tqlpukv7uNE/uCNVY/iDW14K0k6leHWrhgY4XKwp3Lf3j9M8VKTk7FTkoJsn8F+FJvD+nrf3ZAvmU5iI+VEJyR7N713VV5FM0ojH+rQgv7nqB/U1PXXGKirI86c3N3YtFFLVEjaK8R8TfHG/sdfurLSLCye1t5DGJZ9zGQjgsMEADPTrXLXnxo8YXWRFdWtqD/wA8bYZH4tmnYD6XrPvdd0jTSRfapZ2xHaadVP5E18o6j4y8R6oCL3W7+ZT/AAeeVX8lwKwWkZznB3Hqc5/WiwH1Bo/jKPxvrep2ulgHTLCJMSMuGnkZjyPRQFOO5zT7+zuFVjb3EkTDqvXH515T8EtYGn+LZ7CQtsv4NoI6B0OQT+BIr2PxFr+mWcn2Jka4vmXISLjYOxZug+nWsqlLm1RvSq8mj2OJn027ll3TM0rE8Z7/AEFbMXiIfD2TSrTWgqWOpmVmkAy1vICuN3qpBGfQitzw5qmkXUvkRHbqCrlllOWI9VPp+RryX446wt74istNiYlbKEsx7F3Pb6BRRTpcurCrW5lZbHvtnqWn3+TZXttcZ5/cyq/8jVuviSOd4XDJuVx0ZTtI/Guj07x94q0wKLXXb5VHRJJPMX8mzWtjA+uKWvm2z+OHiy2wJzYXQ9Zbfaf/AB0iuq8LfHC51PxBa6fq2m2sUNy4iE0DsPLY9CQ2cjPvxSsB4ffHNwr5+9zUNOldSLcE4Ozk/iaQqB0II7EdKoBpFIDzT8UhGOaQG74R1UaJ4q03UGz5ccwEmP7rfKf0Ofwr6L8SPCnh+4kjjjeScrsboCTyG/IV8toSMc/Q17gmtf234a0aeNyiRo3mp2DgAEH26/nVJgTeB0I8RXAmVvNceYGfqSOMfh/WvLviBqMeqeONVni/1SS+Sh9Qg2k/mDXf3HiNdNb+1Y12tZxthRxvyMAAf3ckcdq8clZnZmZssxJYnue5pX0GyAnnNKBSgZ5/KlxQISp7Btl0Zf7nNQhQepAHcnpSxMALgA87OPzFAFSVs7QewxUmnDMcoY5BPT0rptDTwu+kL/arQi8Er53787eNv3ePWt23Hw/UMYjaeh5mqb6jscCDg4zmgkYrovFDeGxaQf2IYTP5p8zyy/3cd93vXMbqYiVHwdp6HpXbeCdXZYrjTpTmEfvFX68HjuOlcHuBq/o+o/2ZqtvdON8athx/eU9RQB1nji4SFba0hbIlHmsM5wBwP1z+VcU75+UdB1qfVtTl1XU57uQ4Mjcf7KjgAfhVLcBwKAJgRignPGcVFuoD80AGoDEUQUgDPT1qOJvvAdxin3xVo0PU5wKijUqvJ5NAH//Z" alt="avatar"></div>
+        <div>
+          <div class="author-name">Đặng Thị Thúy Nga</div>
+          <div class="author-meta">Khách sạn · Frankfurt · 2023</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Mình bị Kündigung sau 4 tháng Ausbildung vì công ty phá sản đột ngột. Hoảng loạn không biết làm gì, visa sắp hết hạn. Liên hệ <span class="brand-hoff">Hoff</span> — họ hướng dẫn làm thủ tục báo Jobcenter, tìm công ty mới trong ngành và hỗ trợ chuyển hợp đồng. Chỉ 7 tuần sau mình đã có Ausbildungsvertrag mới. Cảm ơn <span class="brand-hoff">Hoff</span> đã không bỏ mình lại.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABgAGADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAqG5urezgee5mjhhQZaSRgqqPcmuU8ffELTPAunK9wPtF/MD9ntFbBf/aY/wqPX8BmvmLxR4313xdeGbVb1nQHMdvH8sUfsq/1OTQOx9D638a/Cul7ks5JtTlHa2XCf99tgflmuSuP2hZScW3h5Bz/y1us8fgteGxzMw246+9XLXS9QvT/otlPN/uRs38hSbGo32PaIv2hwpHn+HgeOfLu+/wCK10elfHTwpfPHHereac7dWni3oP8AgSE/yrxvS/h9q8qtcXVpJGgUkxlPmb6D1rmbqymsrh4ZEkUAkBZFwcUuZFODW6Ps+w1Ky1S0S7sLqG5t3+7LC4dT+Iq1Xxl4e8V6t4R1P7ZpN28JJ/eRHJjlHo69D9eo7GvqLwF43svG+h/bYF8m6iIS6tycmN8dj3U9Qf6iqIaOrooxRQIKyPFGv23hfw3fazdAtHaxlggOC7HhVH1JArXrwz9ovWpI7DR9EjbCTu9zMB3CYVR+bE/gKAPFtc1u/wDE2r3OrajOZbidsnHRR2VR2UDgVL4d8L6j4kvhb2UQCjl5XOFQe9V9I0y6vri0hjC4u5vKRsjgjGcj8a9207R/+Eb0yK00lLdZW5kmuGPJ9cDqf0FRKVkbU6bk9RfCvww0bSdj3qi/uO5kXCKfZf8AGvQUtYbdAkUaIoGAqgAD8q4m31zVLdwv27Q7iQdY/P2N/wDWrctNavJ/lu7YQyeisGB+lZN9zrUex0CxKy81z+veHdN1i3aG6tY3yMBtoyPxp11rd3bAJb24mkP8JYKPzrHn1/Um+VrjRrSQnASScuxPp9aW47PqeQ+Nfh/deG2a7tmM9kT+KVneA/F03g7xTbakjt9kYiK8iH8cRPPHqPvD6e9e3B7jVLeW01aO2kVxjfAxw31BHFeDa34fuLDWdUs4ITKtmWZmHAEfXJz7Gtacr7nNVp2eh9nRSpNEksbB0dQysOhB5Bp9cX8JtSOqfDHQ5nbdJHAbdsnPMbFB+gFdpWhzBXzD+0BeNc/EKC3H3bawjX8WZmP9K+nq+UfjFOLr4p6tj7sSwxflGp/mTQBn+AJohfm1lTMqOlzAfdSA4/FTn8K97+w2up25hnjWRGGCD3FfLcN9d6fd+fZ3EkEwBUSRnBweor6C8G+Iv7S8PWN7nLtGFkx2deG/UZ/Gsqis7nZQlf3TU/4Vt4fE8M32KPfB/q8rnHOfoeT3zWtBYWthJDb26cL2JzgelPbVhs3SSBE7sxxWbNJuuhLba5BEMlirIpJ9s5rNy7HRGJo3NjbX80sMoADKRxx/Ksc/DfRJL17o2kBlddpITGRjHTOOnfrViNgJ2kutehkU4O1UVSD9c9KvpquELQSiWI9HWkpWHKJWg0Wy0a3FvaxhI14Aryf4pT2lnYmKIr9r1C53vheREgx19zgV6H4j8RJpuj3d/K2BChKg/wATnhQPqcV89arq19rUizahcGeWJAikqBgenA9auCu7mNaXKrdT6B/Z6vmn8D3tqxz9mv32/RlVv55r1yvnr9nTVxDqus6M7AefElzGD6qdrY/Bl/KvoWtzgA18beNrwX3jfXboHIlvpdp9gxUfoBX2DfXUdjYz3czBYoI2kdmOAAoyf5V8UXL/AGl2cnDSsXJJ6ZOT/OgaKMowAa3vCPiy68PXLRBTLaTMC8ecEN/eH9aySgY9MBRgZqKwUHUIVIyC4GKUldFRbUk0fRejeIrO8/0eYKGYf6uVeo/HrWnH4b06fMkKwx56qY1I/lXD6TZR3mmxxypuZFGCetaKWGpRLi0vriEjsW3L+tcex6kJtap2OpPhrTbfEkwhlwchfLUD8sVnap4gtLZxbwsrP08uMdPy6VhvpusT8Xt/M4PZDgVZj0eGzgOyPaxHJPU0mym3J3bueTeL/Fl34gvWtmXyLO3dtsQOSzDjc3v6elc0u7AYd+1aviqy+xeIbnAxHK28fjWYg+XHpXXC1lY8ypfmdzpfhxr6eGfH2majLxblzBMfRH+Un8Mg/hX2KORXw2qI3J619afDPxIviXwTZTtJuurdRb3A7714yfqMGqMmjz743/EEwxHwnprKzToDfSeikgiMH37+3HevDjNuJJO5zyzY/QUmralJqmqXF64w0zlsHsKphsDmgdizJJsjPPzMMfhUEBKzxsODuH86jLFmJP0FC9aAR9FeGoC2m28pTJcZzXRC2HUAiqPgFl1Hwfp10pyzRfNkdwcH9a6tYEAG4AE1z8p3KRhC0+bO0n6097JpkwVGPet0QoDtABNKyKq9hS5A5jxH4q6Hb2+kx3gXDowGcdSa8lWUMhB4Neo/GbX47i6t9GtzkQnzZjnueg/rXk4GWreCsjmrO8iUSNnIr1L4M+MV0DxCbC4JNpqJEb46pKPuN9CMqfwrysA1e0hpk1W0MIZpfNXYF6k5GMfjiqM/IosuOtNzxXW+JvD6aRbzL/HFcKYy3BkgkUlGH0KsDXKbaBtWE7Uqghse2aVRkjPaprhNhIPBwM0CPoL4NTM3gsIeQk7hT7HnFekrhh0yK5D4V6AdL8C2C3AaO5nX7QynsG5Ufliu2+zsvAKn9KzadzdSViLaAOBgVheKNZj0TQ7u7P3ooyw+vb9a6F4WVfmZR+NcL8TNLkvPB9/5LM7iMyDHfbg4/SizBzR8239xNqF5Nd3Dl5ZXLMx6nNV0iG4E9BUhxtNN3YGOOua0MNyXy04zkkkAAV7f4F+HltpQtb+5QTXlyF8tmHEQJ5wPXHeuH8AeGotb1O3aSMPFbuJ5yfY/u4/xYEn2FfR1pZpHFaA43xdCPoaLFXsf/9k=" alt="avatar"></div>
+        <div>
+          <div class="author-name">Vũ Thị Thu Trang</div>
+          <div class="author-meta">Bếp · München · 2022</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Công ty Ausbildung của mình đột ngột gửi Kündigung vì "không phù hợp văn hóa làm việc" — mình không biết quyền của mình là gì. <span class="brand-hoff">Hoff</span> kết nối mình với người hỗ trợ pháp lý, giải thích quyền lợi theo luật lao động Đức và tìm được Ausbildung mới trong 2 tháng. Không có họ chắc mình đã về nước rồi.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="https://randomuser.me/api/portraits/men/19.jpg" onerror="this.src='https://i.pravatar.cc/96?img=19';this.onerror=function(){this.src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><circle cx="48" cy="48" r="48" fill="#7eb8d4"/><text x="48" y="56" text-anchor="middle" font-size="28" font-family="sans-serif" font-weight="700" fill="white">ĐA</text></svg>'}" alt="avatar" loading="lazy"></div>
+        <div>
+          <div class="author-name">Hoàng Đức Anh</div>
+          <div class="author-meta">Điện công nghiệp · Stuttgart · 2021</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Mình nộp gần 150 triệu cho một "đại lý", họ làm giấy tờ không hợp lệ mà mình không biết. Đến sân bay bị phát hiện, phải quay về, bị cấm nhập cảnh 1 năm. Sau đó tìm đến <span class="brand-hoff">Hoff</span> — họ hỗ trợ làm hồ sơ đúng chuẩn từ đầu, giải thích rõ từng loại giấy tờ. Giờ mình sang Đức hợp pháp, học nghề nhà hàng tại Hamburg. Đừng để ham rẻ mà mất cả tương lai.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="https://randomuser.me/api/portraits/men/27.jpg" onerror="this.src='https://i.pravatar.cc/96?img=27';this.onerror=function(){this.src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><circle cx="48" cy="48" r="48" fill="#7eb8d4"/><text x="48" y="56" text-anchor="middle" font-size="28" font-family="sans-serif" font-weight="700" fill="white">VL</text></svg>'}" alt="avatar" loading="lazy"></div>
+        <div>
+          <div class="author-name">Ngô Văn Lực</div>
+          <div class="author-meta">Nhà hàng · Hamburg · 2023</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Mình thi B1 trượt 2 lần, B2 trượt 1 lần. Đã 28 tuổi, ba mẹ bắt đầu bảo thôi bỏ đi. Nhưng cô giáo ở <span class="brand-hoff">Hoff</span> gọi điện riêng hỏi thăm, nói "em học được, chỉ cần thêm thời gian". Học thêm 3 tháng, thi B2 đậu. Bây giờ mình 30 tuổi, đang làm kế toán Ausbildung ở Düsseldorf. Không bao giờ quên cuộc điện thoại đó.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="data:image/jpeg;base64,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" alt="avatar"></div>
+        <div>
+          <div class="author-name">Trần Thị Ngọc Bích</div>
+          <div class="author-meta">Kế toán · Düsseldorf · 2022</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <p class="review-text">Sang Đức được 6 tháng thì chủ Ausbildung thay đổi chính sách nội bộ, không nhận học viên nước ngoài nữa và gửi Kündigung hàng loạt. Cả nhóm 3 người Việt đều bị. Mình liên hệ <span class="brand-hoff">Hoff</span> dù trước đó chưa từng học ở đây. Họ vẫn hỗ trợ — kết nối đối tác tại Đức, giúp mình chuyển sang công ty mới cùng ngành bếp chỉ sau 5 tuần. Nghĩa cử này mình không quên.</p>
+      <div class="review-author">
+        <div class="author-avatar"><img src="data:image/jpeg;base64,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" alt="avatar"></div>
+        <div>
+          <div class="author-name">Lý Thị Mỹ Duyên</div>
+          <div class="author-meta">Bếp · Berlin · 2023</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- LIÊN HỆ -->
+<section id="lien-he">
+  <div class="contact-info">
+    <div class="section-tag">Liên Hệ</div>
+    <h3>Bắt đầu hành trình <em style="color:var(--gold);font-style:normal;">của bạn</em></h3>
+    <p>Đặt câu hỏi, đăng ký tư vấn miễn phí hoặc ghé thăm trực tiếp. Đội ngũ <span class="brand-hoff">Hành Trình Việt Đức – Hoff</span> luôn sẵn sàng đồng hành từ bước đầu tiên.</p>
+    <div class="contact-channels">
+      <a href="tel:+84961679869" class="channel"><div class="channel-icon">📞</div><div><div class="channel-label">Điện Thoại / Zalo / WhatsApp</div><div class="channel-val">0961 679 869</div></div></a>
+      <a href="https://facebook.com" class="channel" target="_blank"><div class="channel-icon">📘</div><div><div class="channel-label">Facebook</div><div class="channel-val">Trang Facebook Hành Trình Việt Đức – Hoff</div></div></a>
+      <a href="mailto:vertrieb.lilasprachschule@gmail.com" class="channel"><div class="channel-icon">✉️</div><div><div class="channel-label">Email</div><div class="channel-val">vertrieb.lilasprachschule@gmail.com</div></div></a>
+      <a href="#" class="channel"><div class="channel-icon">📍</div><div><div class="channel-label">Địa Chỉ</div><div class="channel-val">Trường TC Bách Khoa Hải Phòng – Khoa Tiếng Đức, Hải Phòng</div></div></a>
+    </div>
+  </div>
+  <div class="contact-form">
+    <h3>Đăng Ký Tư Vấn Miễn Phí</h3>
+    <div class="form-group"><label>Họ và Tên</label><input type="text" placeholder="Nguyễn Văn A"></div>
+    <div class="form-group"><label>Số Điện Thoại / Zalo</label><input type="tel" placeholder="09xx xxx xxx"></div>
+    <div class="form-group"><label>Trình Độ Hiện Tại</label><select><option value="">— Chọn trình độ —</option><option>Chưa biết tiếng Đức</option><option>A1</option><option>A2</option><option>B1</option><option>B2</option></select></div>
+    <div class="form-group"><label>Mục Tiêu</label><select><option value="">— Chọn mục tiêu —</option><option>Du học nghề (Ausbildung)</option><option>Học tiếng Đức thi chứng chỉ</option><option>Làm việc tại Đức</option><option>Đoàn tụ gia đình</option><option>Khác</option></select></div>
+    <div class="form-group"><label>Câu Hỏi / Ghi Chú</label><textarea placeholder="Bạn muốn hỏi thêm điều gì?"></textarea></div>
+    <button class="submit-btn">Gửi Đăng Ký</button>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-logo">Hành Trình Việt Đức <span>–</span> Hoff</div>
+    <div class="footer-copy">
+      © 2026 · <a href="#">Trung Tâm Đức Ngữ Lila</a> · Trường Trung Cấp Bách Khoa Hải Phòng – Khoa Tiếng Đức<br>
+      <span style="color:var(--gold);font-style:italic;">Đồng hành hành trình Việt–Đức từ A1 đến ổn định tại CHLB Đức.</span>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.6rem;">
+    <div class="footer-since-block">EST. 2011</div>
+    <div class="footer-flag">🇻🇳 <span style="color:var(--gold);font-size:0.85rem;margin:0 0.4rem;">→</span> 🇩🇪</div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+  function openMobileMenu() { document.getElementById('mobileMenu').classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow=''; }
+  const items = document.querySelectorAll('.ticker-item');
+  let current = 0;
+  setInterval(() => { items[current].classList.remove('active'); current=(current+1)%items.length; items[current].classList.add('active'); }, 1200);
+</script>
+</body>
+</html>
